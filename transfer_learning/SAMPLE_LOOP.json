@@ -1,0 +1,35 @@
+{
+    "Introduction":
+    {
+        "Description":
+        {
+            "list":[
+                "python ./DevelopmentScripts/ControlProcess.py -ji SAMPLE_LOOP.json -st ALL -vars=\"WD=.||STR1=1 2 3||STR2=4 5 6||STR3=a b c d\""
+            ]
+        }
+    },
+    "BYOM":
+    {
+        "OptionsLoop":
+        {
+            "list":[
+                {
+                    "Input": {
+                        "WORKDIR": "{WD}",
+                        "NumberOfLoop": "1",
+                        "LOOP1": "{STR1}",
+                        "LOOP2": "{STR2}",
+                        "LOOP3": "{STR3}"
+                    },
+                    "Action":
+                    [
+                        "echo md5({LOOP1[]})",
+                        "echo 123",
+                        "echo {LOOP1[]}"
+                    ],
+                    "Output": ""
+                }
+            ]
+        }
+    }
+}
